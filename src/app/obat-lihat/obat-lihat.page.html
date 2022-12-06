@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Informasi Obat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> Informasi Obat</ion-title>
+      <ion-buttons slot="end">
+        <ion-back-button>Halo</ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Tarik Untuk Memuat Data" refreshingSpinner="circles" refreshingText="Memuat Ulang Data...">
+    </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let item of lists">
+      <ion-item>
+        <ion-label>
+          <h1>{{item.namaobat}}</h1>
+          <hr>
+          <h3>Deskripsi Obat :</h3>
+          <p>{{item.deskripsi}}</p>
+          <h3>Kategori Obat :</h3>
+          <p>{{item.kategori}}</p>
+          <h3>Unit Obat :</h3>
+          <p>{{item.unit}}</p>
+          <h3>Stok Obat :</h3>
+          <p>{{item.stok}}</p>
+          <h3>Kadaluwarsa Obat :</h3>
+          <p>{{item.kadaluwarsa}}</p>
+          <h3>Tempat Penyimpanan Obat :</h3>
+          <p>{{item.penyimpanan}}</p>
+          <h3>Pemasok Obat :</h3>
+          <p>{{item.namapemasok}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-button color="secondary" expand="block" [routerLink]="['/obat']">Selesai</ion-button>
+    </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="circles" loadingText="Sedang Memuat Data...">
+    </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>

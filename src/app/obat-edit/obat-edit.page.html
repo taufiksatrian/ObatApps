@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Data Obat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> Edit Data Obat</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Nama Obat</ion-label>
+      <ion-input required [(ngModel)]="namaobat" placeholder="Masukkan Nama Obat" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Deskripsi Obat</ion-label>
+      <ion-input required [(ngModel)]="deskripsi" placeholder="Masukkan " type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Penyimpanan Obat</ion-label>
+      <ion-input required [(ngModel)]="penyimpanan" placeholder="Masukkan Tempat Penyimpanan" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Stok Obat</ion-label>
+      <ion-input required [(ngModel)]="stok" placeholder="Masukkan Stok Obat" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Unit Obat</ion-label>
+        <ion-select required [(ngModel)]="unit"  placeholder="Pilih Unit Obat">
+          <ion-select-option value="Kapsul">Kapsul</ion-select-option>
+          <ion-select-option value="Semprot">Semprot</ion-select-option>
+          <ion-select-option value="Sirup">Sirup</ion-select-option>
+          <ion-select-option value="Tablet">Tablet</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Kategori Obat</ion-label>
+        <ion-select required [(ngModel)]="kategori"  placeholder="Pilih Kategori Obat">
+          <ion-select-option value="Antibiotik">Antibiotik</ion-select-option>
+          <ion-select-option value="Antioksidan">Antioksidan</ion-select-option>
+          <ion-select-option value="Antidepresan">Antidepresan</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tanggal Kadaluwarsa Obat</ion-label>
+      <ion-input required [(ngModel)]="kadaluwarsa" placeholder="Masukkan " type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Pemasok Obat</ion-label>
+      <ion-select required [(ngModel)]="namapemasok"  placeholder="Pilih Pemasok Obat">
+        <ion-select-option value="Kimia Farma">Kimia Farma</ion-select-option>
+        <ion-select-option value="Phapros">Phapros</ion-select-option>
+        <ion-select-option value="Kalbe Farma">Kalbe Farma</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-input required [(ngModel)]="id" type="hidden"></ion-input>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="editObat()" color="primary" shape="full" expand="block">Simpan</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-list>
+</ion-content>
+  
